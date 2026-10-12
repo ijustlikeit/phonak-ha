@@ -34,21 +34,48 @@ Home Assistant's own Bluetooth isn't used: the aids only advertise rarely while
 the phone is connected, and Home Assistant can't resolve their private
 addresses reliably.
 
-## Install
-1. In HACS, open the menu (⋮) → **Custom repositories**, add
-   `https://github.com/ijustlikeit/phonak-ha` as an **Integration**, then download
-   **Phonak Hearing Aids** and restart Home Assistant.
-   (Manual install: copy `custom_components/phonak` to
-   `/config/custom_components/phonak` and restart.)
-2. Settings → Devices & services → **Add integration** → **Phonak Hearing Aids**.
+## Install the integration
+
+### With HACS (recommended)
+You need [HACS](https://hacs.xyz/docs/use/) installed in Home Assistant.
+
+**One click:** if your browser is logged in to your Home Assistant, this
+button adds the repository and opens it in HACS:
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ijustlikeit&repository=phonak-ha&category=integration)
+
+**Step by step:**
+1. In Home Assistant, open **HACS** from the sidebar.
+2. Open the menu (⋮, top right) → **Custom repositories**.
+3. Repository: `https://github.com/ijustlikeit/phonak-ha`, Type: **Integration**,
+   then **Add** and close the dialog.
+4. Search HACS for **Phonak Hearing Aids**, open it and click **Download**
+   (bottom right), then **Download** again in the dialog.
+5. Restart Home Assistant (Settings → System → ⏻ → **Restart Home Assistant**).
+
+The integration has been submitted to the HACS default store. Once it is
+accepted you can skip steps 2–3 and just search for it.
+
+**Updates** show up in HACS (and under Settings → Updates) when a new release
+is published; install them there and restart Home Assistant. Check the
+[release notes](https://github.com/ijustlikeit/phonak-ha/releases) for a newer
+Phonak Bridge app as well.
+
+### Manual
+Copy `custom_components/phonak` from this repository (or from the source zip of
+the [latest release](https://github.com/ijustlikeit/phonak-ha/releases/latest))
+to `/config/custom_components/phonak` and restart Home Assistant.
+
+## Set up
+1. Settings → Devices & services → **Add integration** → **Phonak Hearing Aids**.
    The dialog that follows shows the webhook URL (also under **Configure**
    later). If it shows only `/api/webhook/…`, put your Home Assistant URL in
    front, e.g. `https://xxxx.ui.nabu.casa/api/webhook/…`.
-3. Download `PhonakBridge-*.apk` from the
+2. Download `PhonakBridge-*.apk` from the
    [latest release](https://github.com/ijustlikeit/phonak-ha/releases/latest) on the phone
    and open it (allow installing from your browser/files app when asked).
    Allow nearby devices (Bluetooth) and notifications.
-4. In the app: paste the webhook URL, check the hearing aids picked ("R-Phonak
+3. In the app: paste the webhook URL, check the hearing aids picked ("R-Phonak
    hearing aid" / "L-Phonak hearing aid"), tap **Save & start**, then
    **Allow running in the background**. On Samsung (or other Android) phones
    also check Settings → Apps → Phonak Bridge → Battery → **Unrestricted**.
