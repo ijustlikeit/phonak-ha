@@ -1,0 +1,63 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "Home Assistant doesn't connect to the hearing aids itself: the Phonak Bridge app on your phone reads them and reports here through a webhook. After you submit, you get the webhook URL to enter in the app."
+      }
+    },
+    "create_entry": {
+      "default": "Enter this URL in the Phonak Bridge app on your phone:\n\n{webhook_url}\n\nUse your external URL (e.g. Nabu Casa) if the phone should report from outside your home network. You can see the URL again under Configure."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "description": "Webhook URL for the Phonak Bridge app:\n\n{webhook_url}"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "phone_connected": {
+        "name": "Phone app connected"
+      }
+    },
+    "button": {
+      "refresh": {
+        "name": "Read hearing aids now"
+      }
+    },
+    "sensor": {
+      "battery": {
+        "name": "Battery"
+      },
+      "last_update": {
+        "name": "Last read"
+      }
+    },
+    "select": {
+      "program": {
+        "name": "Program"
+      }
+    },
+    "number": {
+      "volume": {
+        "name": "Volume"
+      }
+    },
+    "switch": {
+      "mute": {
+        "name": "Mute"
+      },
+      "auto_on": {
+        "name": "Auto-on"
+      },
+      "tap_control": {
+        "name": "Tap control"
+      },
+      "streaming": {
+        "name": "Bluetooth streaming {device}"
+      }
+    }
+  }
+}
