@@ -34,10 +34,12 @@ PROGRAM_NAMES = {
     PROGRAM_STREAMING: "Bluetooth streaming & Mic",
 }
 
-# 0 is the fitted default (the middle of the myPhonak slider). myPhonak sent
-# -3..+2; the full range of the aid hasn't been probed.
-MIN_VOLUME = -5
-MAX_VOLUME = 5
+# 0 is the fitted default (the middle of the myPhonak slider). Limited to what
+# myPhonak itself was seen sending (-3..+2): the aid's real range hasn't been
+# probed, and a too-loud setting is a hearing risk. The phone app clamps to the
+# same range. Widen only once the aid's range is confirmed.
+MIN_VOLUME = -3
+MAX_VOLUME = 2
 
 # Commands for the phone app: "action" -> the AidState attribute it changes.
 ACTION_VOLUME = "volume"  # value: s8 level, this ear only

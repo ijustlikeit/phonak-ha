@@ -98,8 +98,10 @@ I've had loss of connection and issues reconnecting.
   knows the ids of one fitting (Automatic, Speech in loud noise, Restaurant,
   Music, TV, …); programs with other ids show as `Program 0x..` and can't be
   selected yet.
-- The volume slider goes from -5 to +5 around the fitted default; myPhonak
-  itself uses a smaller range.
+- The volume slider goes from -3 to +2 around the fitted default, the range
+  myPhonak was seen using. The aids may allow more, but that hasn't been
+  confirmed, and a too-loud setting can harm your hearing, so the integration
+  and the app never send anything outside it.
 - Changes take up to one check-in interval (30 s by default) to reach the aids.
 
 ## Tested with

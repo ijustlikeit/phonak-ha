@@ -72,6 +72,15 @@ class ProtocolTest {
     }
 
     @Test
+    fun volumeIsClampedToTheVerifiedRange() {
+        assertEquals("b1 00 01 fd 01", P.volumePayload(-3).toHex())
+        assertEquals("b1 00 01 02 01", P.volumePayload(2).toHex())
+        assertEquals("b1 00 01 02 01", P.volumePayload(5).toHex()) // never louder than +2
+        assertEquals("b1 00 01 fd 01", P.volumePayload(-128).toHex())
+        assertEquals("b1 00 01 02 01", P.volumePayload(127).toHex())
+    }
+
+    @Test
     fun addresses() {
         assertEquals("80:28:3C:12:34:56", P.formatAddress(P.hex("5634123c2880")))
         assertEquals("56 34 12 3c 28 80", P.parseAddress("80:28:3C:12:34:56").toHex())

@@ -67,7 +67,11 @@ on a pair of Audéo Sphere i90. Framing, CRC and opcodes are in
 | 0x20 | Calm situation backyard | as Restaurant |
 | 0x07 | Bluetooth streaming & Mic | entered by the aid while the phone streams |
 
-Volume values seen: -3, -2, -1, 0, +2 (one slider step up = +2).
+Volume values seen from myPhonak: -3, -2, -1, 0, +2 (one slider step up = +2).
+The integration and the bridge app only write -3..+2. The aid's real range is
+unknown: +3 was written once from the bridge and accepted, which is not enough
+to call it safe. Widen MIN_VOLUME/MAX_VOLUME (const.py and Protocol.kt) only
+after confirming the range, e.g. from a myPhonak capture at the slider's ends.
 
 ## Capturing
 Phone: Developer options → Enable Bluetooth HCI snoop log, toggle Bluetooth,

@@ -252,7 +252,10 @@ class AidSession(private val link: GattLink, private val scope: CoroutineScope) 
             "volume" -> {
                 // Offset for this ear: 0 = fitted default, negative = quieter.
                 val level = (command.value as? Number)?.toInt() ?: throw AidException("No volume given")
-                write(listOf(P.writePayload(P.PARAM_SET_VOLUME, byteArrayOf(1, level.toByte(), 1))))
+                if (level !in P.MIN_VOLUME..P.MAX_VOLUME) {
+                    Log.w(TAG, "Volume $level outside ${P.MIN_VOLUME}..${P.MAX_VOLUME}, clamped")
+                }
+                write(listOf(P.volumePayload(level)))
             }
             "program" -> {
                 val program = (command.value as? Number)?.toInt() ?: throw AidException("No program given")

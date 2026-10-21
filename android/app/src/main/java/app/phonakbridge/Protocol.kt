@@ -217,6 +217,16 @@ object Protocol {
 
     fun signed(value: Int) = if (value > 127) value - 256 else value
 
+    // Volume offsets myPhonak was seen sending; the aid's full range is unknown
+    // and a too-loud setting is a hearing risk, so nothing outside is written.
+    // Keep in step with MIN_VOLUME/MAX_VOLUME in the integration's const.py.
+    const val MIN_VOLUME = -3
+    const val MAX_VOLUME = 2
+
+    /** Payload to set one ear's volume offset, clamped to the verified range. */
+    fun volumePayload(level: Int) =
+        writePayload(PARAM_SET_VOLUME, byteArrayOf(1, level.coerceIn(MIN_VOLUME, MAX_VOLUME).toByte(), 1))
+
     // --- Decoders -----------------------------------------------------------------
 
     data class Identity(val serial: String, val side: Int)
