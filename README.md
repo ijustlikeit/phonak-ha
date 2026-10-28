@@ -42,7 +42,7 @@ You need [HACS](https://hacs.xyz/docs/use/) installed in Home Assistant.
 **One click:** if your browser is logged in to your Home Assistant, this
 button adds the repository and opens it in HACS:
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ijustlikeit&repository=phonak-ha&category=integration)
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=my_integration)
 
 **Step by step:**
 1. In Home Assistant, open **HACS** from the sidebar.
