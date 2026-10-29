@@ -1,6 +1,5 @@
 # Phonak for Home Assistant
 
-[![Home Assistant Marketplace](https://shields.io)](https://github.com)
 
 Custom integration for Phonak hearing aids. One entry covers
 the pair; each aid is its own device with battery, volume (per ear), program
