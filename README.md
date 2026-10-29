@@ -36,22 +36,16 @@ addresses reliably.
 
 ## Install the integration
 
-### With HACS (recommended)
-You need [HACS](https://hacs.xyz/docs/use/) installed in Home Assistant.
-
+### With Marketplace (recommended)
 **One click:** if your browser is logged in to your Home Assistant, this
-button adds the repository and opens it in HACS:
+button adds the repository and opens it in Marketplace:
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ijustlikeit&repository=phonak-ha&category=integration)
 
 **Step by step:**
-1. In Home Assistant, open **HACS** from the sidebar.
-2. Open the menu (⋮, top right) → **Custom repositories**.
-3. Repository: `https://github.com/ijustlikeit/phonak-ha`, Type: **Integration**,
-   then **Add** and close the dialog.
-4. Search HACS for **Phonak Hearing Aids**, open it and click **Download**
+1. In Home Assistant, open **Marketplace** from the sidebar.
+2. Search Marketplace for **Phonak Hearing Aids**, open it and click **Download**
    (bottom right), then **Download** again in the dialog.
-5. Restart Home Assistant (Settings → System → ⏻ → **Restart Home Assistant**).
 
 The integration has been submitted to the HACS default store. Once it is
 accepted you can skip steps 2–3 and just search for it.
