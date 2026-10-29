@@ -43,14 +43,11 @@ button adds the repository and opens it in Marketplace:
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ijustlikeit&repository=phonak-ha&category=integration)
 
 **Step by step:**
-1. In Home Assistant, open **Marketplace** from the sidebar.
-2. Search Marketplace for **Phonak Hearing Aids**, open it and click **Download**
-   (bottom right), then **Download** again in the dialog.
+1. In Home Assistant, open **Settings -> Marketplace** from the sidebar.
+2. Search Marketplace for **Phonak Hearing Aids**, open it and click **Install**.
+3. That's it.
 
-The integration has been submitted to the HACS default store. Once it is
-accepted you can skip steps 2–3 and just search for it.
-
-**Updates** show up in HACS (and under Settings → Updates) when a new release
+**Updates** show up in Marketplace (and under Settings → Updates) when a new release
 is published; install them there and restart Home Assistant. Check the
 [release notes](https://github.com/ijustlikeit/phonak-ha/releases) for a newer
 Phonak Bridge app as well.
