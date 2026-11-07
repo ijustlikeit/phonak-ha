@@ -1,6 +1,5 @@
 # Phonak for Home Assistant
 
-
 Custom integration for Phonak hearing aids. One entry covers
 the pair; each aid is its own device with battery, volume (per ear), program
 (switches both aids), mute and auto-on (both aids), tap control, and a
@@ -35,21 +34,33 @@ addresses reliably.
 
 ## Install the integration
 
-### With Marketplace (recommended)
-**One click:** if your browser is logged in to your Home Assistant, this
-button adds the repository and opens it in Marketplace:
+### With the Marketplace (recommended)
+Phonak Hearing Aids is listed in the Home Assistant **Marketplace** (built into
+Home Assistant 2026.11 and later; it replaced HACS).
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ijustlikeit&repository=phonak-ha&category=integration)
+**One click:** if your browser is logged in to your Home Assistant, this
+button opens the integration in the Marketplace:
+
+[![Open this repository in the Home Assistant Marketplace.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ijustlikeit&repository=phonak-ha&category=integration)
 
 **Step by step:**
-1. In Home Assistant, open **Settings -> Marketplace** from the sidebar.
-2. Search Marketplace for **Phonak Hearing Aids**, open it and click **Install**.
-3. That's it.
+1. In Home Assistant, go to **Settings** → **Marketplace**.
+2. Search for **Phonak Hearing Aids**, open it and select **Install**, then
+   **Install** again to confirm the version. The first time you install
+   anything from the Marketplace, Home Assistant asks you to accept its notice
+   about community projects (**I understand the risks and agree**).
+3. The setup usually opens right away (continue with [Set up](#set-up)). If
+   Home Assistant needs a restart first, a repair under **Settings** →
+   **System** → **Repairs** tells you and can restart it for you.
 
-**Updates** show up in Marketplace (and under Settings → Updates) when a new release
-is published; install them there and restart Home Assistant. Check the
+**Updates** appear under **Settings** → **Updates** when a new release is
+published (the Marketplace checks every 6 hours). Install the update there,
+then restart Home Assistant when the repair asks. Check the
 [release notes](https://github.com/ijustlikeit/phonak-ha/releases) for a newer
 Phonak Bridge app as well.
+
+**Home Assistant older than 2026.11:** install it through HACS instead (HACS →
+search **Phonak Hearing Aids** → **Download**, then restart Home Assistant).
 
 ### Manual
 Copy `custom_components/phonak` from this repository (or from the source zip of
@@ -115,5 +126,9 @@ controller. This would limit the usefulness severely.
 - `tools/bridge_test_server.py`: stand-in webhook for testing the app without
   Home Assistant (`adb reverse tcp:8765 tcp:8765`, URL
   `http://127.0.0.1:8765/api/webhook/test`).
+- `.github/workflows/validate.yml`: hassfest plus the catalog validation
+  (`hacs/action`; the Marketplace uses the same catalog, `hacs/default`, and
+  the same `hacs.json` as HACS did). Releases reach Marketplace users as
+  updates; no new submission is needed.
 - Building the app: JDK 17 and the Android SDK (platform 36), then
   `cd android && ./gradlew assembleRelease testDebugUnitTest`.
