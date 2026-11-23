@@ -3,7 +3,9 @@
 Custom integration for Phonak hearing aids. One entry covers
 the pair; each aid is its own device with battery, volume (per ear), program
 (switches both aids), mute and auto-on (both aids), tap control, and a
-Bluetooth-streaming switch per paired phone.
+Bluetooth-streaming switch per paired phone. The pair is also a **media
+player** (volume, mute, program as source), so media cards, voice assistants
+and HomeKit/Google Home bridges can control the aids.
 
 > Not affiliated with or endorsed by Sonova AG or Phonak. Phonak and myPhonak
 > are trademarks of Sonova AG. The protocol was worked out from the Bluetooth
@@ -82,6 +84,23 @@ to `/config/custom_components/phonak` and restart Home Assistant.
    also check Settings → Apps → Phonak Bridge → Battery → **Unrestricted**.
 
 The app keeps a notification while it runs and restarts after a reboot.
+
+## Media player
+`media_player.phonak_hearing_aids` (device **Phonak hearing aids**) controls
+both aids at once:
+
+- **Volume** sets both ears to the same level. 0–100 % maps to the safe range
+  -3..+2 around the fitted default, in 6 steps (0 % = -3, 60 % = 0, the fitted
+  default, 100 % = +2); volume up/down moves one step. It never sends anything
+  outside that range. If the ears differ, it shows the louder one.
+- **Mute** mutes or unmutes both aids.
+- **Source** is the hearing program (Automatic, Restaurant, Music, …), switched
+  on both aids. The streaming program shows while active but can't be picked.
+
+It doesn't play audio: Home Assistant can't stream to the aids. For spoken
+announcements, use the Home Assistant Companion app's TTS notifications on the
+phone; you hear them in the aids while the phone streams to them. Like every
+change, a command reaches the aids at the phone's next check-in (up to 30 s).
 
 ## myPhonak
 myPhonak keeps its own session with the aids open while it runs, even in the
